@@ -1,6 +1,6 @@
 <?php
 require('clases/Tigger.php');
-require('clases/Pertenencias.php');
+require('clases/Salir.php');
 $tigre = Tigger::getInstance();
 
 $tigre->roar();
@@ -10,6 +10,12 @@ $tigre->roar();
 $tigre->roar();
 $tigre->getCounter();
 
-$pertenencias= Pertenencias::getInstance();
-$pertenencias->versipuedosalir();
+$mispertenencias= new Pertenencias;
+
+$salir= new Salir($mispertenencias);
+$salir->verSiPuedoSalir();
+
+$mispertenencias->setLlavesCasa(false);
+$salir->verSiPuedoSalir();
+
 ?>

@@ -1,35 +1,53 @@
 <?php
-  /*
-  Imagina que ets una persona que està a punt de sortir de casa per anar a estudiar/treballar. 
-  Abans de sortir de casa necessitaràs portar la cartera, les claus de casa, potser les claus del cotxe/moto o la targeta del transport públic, i l'smartphone
-  */
+
 class Pertenencias {
-        static private $instance = null;
-        private $pertenencias = [['cartera',true],['llavescasa',false],['llavescoche',true],['tusual',false],['smartphone',true]];
+        public $cartera = true;
+        public $llavescasa = true;
+        public $llavescoche = true;
+        public $tusual = true;
+        public $smartphone = true;
     
-    private function __construct() {}
-    public static function getInstance() {
-        if (self::$instance == null) {
-            self::$instance = new Pertenencias ();
-        }
-        return self::$instance;
-    }
-    public function versipuedosalir() {
-        $podersalir = true;
-        for($i=0; $i<count($this->pertenencias); $i++ ){
-            if ($this->pertenencias[$i][1] == false){
-                echo 'Te falta ' . $this->pertenencias[$i][0] . '</br>' ;
-                $podersalir = false;
-            }
-        }
-        if (!$podersalir){
-            echo 'No salgas aun';
-        }
-        else {
-            echo 'Puedes salir';
-        }
-    }
+    public function __construct() {
 
-
+    }
+        public function getCartera() {
+            return $this->cartera;
+        }
+    
+        public function getLlavesCasa() {
+            return $this->llavescasa;
+        }
+    
+        public function getLlavesCoche() {
+            return $this->llavescoche;
+        }
+    
+        public function getTusual() {
+            return $this->tusual;
+        }
+    
+        public function getSmartphone() {
+            return $this->smartphone;
+        }
+        public function setCartera($cartera) {
+            $this->cartera = $cartera;
+        }
+    
+        public function setLlavesCasa($llavescasa) {
+            $this->llavescasa = $llavescasa;
+        }
+    
+        public function setLlavesCoche($llavescoche) {
+            $this->llavescoche = $llavescoche;
+        }
+    
+        public function setTusual($tusual) {
+            $this->tusual = $tusual;
+        }
+    
+        public function setSmartphone($smartphone) {
+            $this->smartphone = $smartphone;
+        }
+    
 }
 ?>
